@@ -16,6 +16,6 @@ def qsort(arr: List[int]) -> List[int]:
         elif element > pivot:
             right.append(element)
         else:
-            middle.append(pivot)
+            middle.append(element)
 
     return qsort(left) + middle + qsort(right)
