@@ -5,7 +5,8 @@ import json
 import shutil
 import numpy as np
 from pathlib import Path
-from typing import Callable, Any, List
+from typing import Callable, Any, List, Tuple
+
 
 def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarray:
     times = []
@@ -47,7 +48,7 @@ def generateDatasets(dirName: str, numberOfDatasets: int = 50, minSize: int = 10
 def removeDatasets(dirName: str) -> None:
     shutil.rmtree(dirName)
 
-def loadDatasets(dirName: str) -> List[List[int]]:
+def loadDatasets(dirName: str) -> List[Tuple[List[int], int]]:
     datasets = []
     dataDir = Path(dirName)
 
