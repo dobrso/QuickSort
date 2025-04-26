@@ -54,6 +54,6 @@ def loadDatasets(dirName: str) -> List[List[int]]:
     for file in dataDir.glob("dataset_*.json"):
         with open(file, "r") as f:
             dataset = json.load(f)
-            datasets.append(dataset["dataset"])
+            datasets.append((dataset["size"], dataset["dataset"]))
 
-    return datasets
+    return sorted(datasets, key=lambda x: x[0])
