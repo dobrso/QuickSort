@@ -1,36 +1,9 @@
-import time
 import random
 import os
-import json
 import shutil
-import numpy as np
+import json
 from pathlib import Path
-from typing import Callable, Any, List, Tuple
-
-
-def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarray:
-    times = []
-
-    for _ in range(repeats):
-        timeStart = time.perf_counter_ns()
-        func(*args)
-        timeEnd = time.perf_counter_ns()
-
-        timeDiff = timeEnd - timeStart
-        times.append(timeDiff)
-
-    meanTime = np.mean(times)
-    return meanTime
-
-def countIterations(func: Callable[..., Any]) -> Callable[..., Any]:
-    def wrapper(*args: Any) -> Any:
-        wrapper.iterationCount += 1
-
-        return func(*args)
-
-    wrapper.iterationCount = 0
-
-    return wrapper
+from typing import List, Tuple
 
 def generateDatasets(dirName: str, numberOfDatasets: int = 50, minSize: int = 100, maxSize: int = 10000) -> None:
     os.mkdir(dirName)

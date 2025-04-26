@@ -1,5 +1,5 @@
 import random
-from calculationAndCreation import countIterations
+from calculation import countIterations
 from typing import List
 
 @countIterations
