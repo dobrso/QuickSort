@@ -4,7 +4,8 @@ import os
 import json
 import shutil
 import numpy as np
-from typing import Callable, Any
+from pathlib import Path
+from typing import Callable, Any, List
 
 def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarray:
     times = []
@@ -39,4 +40,13 @@ def generateDatasets(dirName: str, numberOfDatasets: int = 50, minSize: int = 10
 def removeDatasets(dirName: str) -> None:
     shutil.rmtree(dirName)
 
-def loadDatasets():
+def loadDatasets(dirName: str) -> List[List[int]]:
+    datasets = []
+    dataDir = Path(dirName)
+
+    for file in dataDir.glob("dataset_*.json"):
+        with open(file, "r") as f:
+            dataset = json.load(f)
+            datasets.append(dataset["dataset"])
+
+    return datasets
