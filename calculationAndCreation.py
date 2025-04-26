@@ -1,4 +1,8 @@
 import time
+import random
+import os
+import json
+import shutil
 import numpy as np
 from typing import Callable, Any
 
@@ -19,5 +23,20 @@ def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarra
 def countIterations():
     ...
 
-def generateInputData():
-    ...
+def generateDatasets(dirName: str, numberOfDatasets: int = 50, minSize: int = 100, maxSize: int = 10000) -> None:
+    os.mkdir(dirName)
+
+    for i in range(numberOfDatasets):
+        sizeOfDataset = random.randint(minSize, maxSize)
+        dataset = [random.randint(-1000, 1000) for _ in range(sizeOfDataset)]
+
+        with open(f"{dirName}/dataset_{i+1}.json", "w") as f:
+            json.dump({
+                "size": sizeOfDataset,
+                "dataset": dataset
+            }, f)
+
+def removeDatasets(dirName: str) -> None:
+    shutil.rmtree(dirName)
+
+def loadDatasets():
