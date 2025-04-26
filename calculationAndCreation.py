@@ -48,7 +48,7 @@ def generateDatasets(dirName: str, numberOfDatasets: int = 50, minSize: int = 10
 def removeDatasets(dirName: str) -> None:
     shutil.rmtree(dirName)
 
-def loadDatasets(dirName: str) -> List[Tuple[List[int], int]]:
+def loadDatasets(dirName: str) -> List[Tuple[int, List[int]]]:
     datasets = []
     dataDir = Path(dirName)
 
