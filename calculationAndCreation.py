@@ -11,9 +11,9 @@ def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarra
     times = []
 
     for _ in range(repeats):
-        timeStart = time.perf_counter()
+        timeStart = time.perf_counter_ns()
         func(*args)
-        timeEnd = time.perf_counter()
+        timeEnd = time.perf_counter_ns()
 
         timeDiff = timeEnd - timeStart
         times.append(timeDiff)
@@ -21,8 +21,15 @@ def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarra
     meanTime = np.mean(times)
     return meanTime
 
-def countIterations():
-    ...
+def countIterations(func: Callable[..., Any]) -> Callable[..., Any]:
+    def wrapper(*args: Any) -> Any:
+        wrapper.iterationCount += 1
+
+        return func(*args)
+
+    wrapper.iterationCount = 0
+
+    return wrapper
 
 def generateDatasets(dirName: str, numberOfDatasets: int = 50, minSize: int = 100, maxSize: int = 10000) -> None:
     os.mkdir(dirName)
