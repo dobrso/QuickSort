@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from typing import List, Tuple
 
+
 def generateDatasets(dirName: str, numberOfDatasets: int = 50, minSize: int = 100, maxSize: int = 10000) -> None:
     os.mkdir(dirName)
 
@@ -18,8 +19,10 @@ def generateDatasets(dirName: str, numberOfDatasets: int = 50, minSize: int = 10
                 "dataset": dataset
             }, f)
 
+
 def removeDatasets(dirName: str) -> None:
     shutil.rmtree(dirName)
+
 
 def loadDatasets(dirName: str) -> List[Tuple[int, List[int]]]:
     datasets = []

@@ -2,6 +2,7 @@ import time
 import numpy as np
 from typing import Callable, Any
 
+
 def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarray:
     times = []
 
@@ -15,6 +16,7 @@ def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarra
 
     meanTime = np.mean(times)
     return meanTime
+
 
 def countIterations(func: Callable[..., Any]) -> Callable[..., Any]:
     def wrapper(*args: Any) -> Any:

@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from typing import List
 
+
 def resultGraph(sizes: List[int], times: List[np.ndarray], iterations: List[int]) -> None:
     fig, ax1 = plt.subplots()
 

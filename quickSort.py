@@ -2,6 +2,7 @@ import random
 from calculation import countIterations
 from typing import List
 
+
 @countIterations
 def qsort(arr: List[int]) -> List[int]:
     if len(arr) <= 1 or arr == sorted(arr):
