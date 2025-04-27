@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 from typing import List
 
 def resultGraph(sizes: List[int], times: List[np.ndarray], iterations: List[int]) -> None:
-    plt.title("Показатели алгоритма QuickSort")
-
     fig, ax1 = plt.subplots()
 
     color = 'tab:red'
@@ -21,4 +19,5 @@ def resultGraph(sizes: List[int], times: List[np.ndarray], iterations: List[int]
     ax2.tick_params(axis='y', labelcolor=color)
 
     fig.tight_layout()
+    plt.title("Показатели алгоритма QuickSort")
     plt.show()
