@@ -1,6 +1,6 @@
 import calculation
 import dataManipulation
-import visualization
+from visualization import resultGraph
 from quickSort import qsort
 
 DIR_NAME = "datasets"
@@ -22,5 +22,7 @@ if __name__ == "__main__":
         times.append(time)
         iterations.append(iteration)
         sizes.append(size)
+
+    resultGraph(sizes, times, iterations)
 
     dataManipulation.removeDatasets(DIR_NAME)

@@ -6,9 +6,9 @@ def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarra
     times = []
 
     for _ in range(repeats):
-        timeStart = time.perf_counter_ns()
+        timeStart = time.perf_counter()
         func(*args)
-        timeEnd = time.perf_counter_ns()
+        timeEnd = time.perf_counter()
 
         timeDiff = timeEnd - timeStart
         times.append(timeDiff)
