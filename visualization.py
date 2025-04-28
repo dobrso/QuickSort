@@ -22,7 +22,6 @@ def resultGraph(sizes: List[int], times: List[np.ndarray], iterations: List[int]
     ax2.tick_params(axis='y', labelcolor=color)
 
     fig.tight_layout()
-    plt.title("Показатели алгоритма QuickSort")
     plt.show()
 
 
