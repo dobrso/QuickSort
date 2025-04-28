@@ -1,6 +1,6 @@
 import calculation
 import dataManipulation
-from visualization import resultGraph, resultTable
+import visualization
 from quickSort import qsort
 
 DIR_NAME = "datasets"
@@ -25,8 +25,6 @@ if __name__ == "__main__":
         iterations.append(iteration)
         sizes.append(size)
 
-    resultGraph(sizes, times, iterations)
+    visualization.resultGraph(sizes, times, iterations)
 
-    resultTable(sizes, times, iterations)
-
-
+    visualization.resultTable(sizes, times, iterations)
