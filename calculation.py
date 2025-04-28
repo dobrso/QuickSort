@@ -12,7 +12,8 @@ def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarra
         timeEnd = time.perf_counter()
 
         timeDiff = timeEnd - timeStart
-        times.append(timeDiff)
+        roundedDiff = round(timeDiff, 4)
+        times.append(roundedDiff)
 
     meanTime = np.mean(times)
     return meanTime

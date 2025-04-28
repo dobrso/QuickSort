@@ -1,6 +1,6 @@
 import calculation
 import dataManipulation
-from visualization import resultGraph
+from visualization import resultGraph, resultTable
 from quickSort import qsort
 
 DIR_NAME = "datasets"
@@ -10,6 +10,8 @@ if __name__ == "__main__":
     dataManipulation.generateDatasets(DIR_NAME)
 
     datasets = dataManipulation.loadDatasets(DIR_NAME)
+
+    dataManipulation.removeDatasets(DIR_NAME)
 
     times = []
     iterations = []
@@ -25,4 +27,6 @@ if __name__ == "__main__":
 
     resultGraph(sizes, times, iterations)
 
-    dataManipulation.removeDatasets(DIR_NAME)
+    resultTable(sizes, times, iterations)
+
+
