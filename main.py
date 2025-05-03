@@ -7,7 +7,7 @@ DIR_NAME = "datasets"
 FUNCTION_REPEATS = 1
 
 
-def main():
+def main() -> None:
     dataManipulation.generateDatasets(DIR_NAME)
 
     datasets = dataManipulation.loadDatasets(DIR_NAME)
