@@ -6,7 +6,8 @@ from quickSort import qsort
 DIR_NAME = "datasets"
 FUNCTION_REPEATS = 1
 
-if __name__ == "__main__":
+
+def main():
     dataManipulation.generateDatasets(DIR_NAME)
 
     datasets = dataManipulation.loadDatasets(DIR_NAME)
@@ -28,3 +29,7 @@ if __name__ == "__main__":
     visualization.resultGraph(sizes, times, iterations)
 
     visualization.resultTable(sizes, times, iterations)
+
+
+if __name__ == "__main__":
+    main()
