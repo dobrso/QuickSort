@@ -7,7 +7,8 @@ from typing import List, Tuple
 
 
 def generateDatasets(dirName: str, numberOfDatasets: int = 50, minSize: int = 100, maxSize: int = 10000) -> None:
-    os.mkdir(dirName)
+    if not os.path.exists(dirName):
+        os.mkdir(dirName)
 
     for i in range(numberOfDatasets):
         sizeOfDataset = random.randint(minSize, maxSize)
