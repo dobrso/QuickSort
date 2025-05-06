@@ -2,9 +2,7 @@ import calculation
 import dataManipulation
 import visualization
 from quickSort import qsort
-
-DIR_NAME = "datasets"
-FUNCTION_REPEATS = 1
+from constants import DIR_NAME, FUNCTION_REPEATS
 
 
 def main() -> None:

@@ -20,10 +20,10 @@ def measureTime(func: Callable[..., Any], *args: Any, repeats: int) -> np.ndarra
 
 
 def countIterations(func: Callable[..., Any]) -> Callable[..., Any]:
-    def wrapper(*args: Any) -> Any:
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         wrapper.iterationCount += 1
 
-        return func(*args)
+        return func(*args, **kwargs)
 
     wrapper.iterationCount = 0
 
